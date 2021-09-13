@@ -7,7 +7,7 @@ using Photon.Realtime;
 using System.Collections;
 
 
-namespace Com.MyCompany.MyGame {
+namespace Com.Bryce.Unity {
 
     [RequireComponent(typeof(InputField))]
     public class PlayerNameInputField : MonoBehaviour  {
