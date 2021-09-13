@@ -1,3 +1,4 @@
+using System;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -26,7 +27,8 @@ namespace Com.Bryce.Unity {
         }
 
         private void Start() {
-            Connect();
+            progressLabel.SetActive(false);
+            controlPanel.SetActive(true);
         }
 
         #endregion
@@ -34,6 +36,9 @@ namespace Com.Bryce.Unity {
         #region Public Methods
 
         public void Connect() {
+            progressLabel.SetActive(true);
+            controlPanel.SetActive(false);
+
             if (PhotonNetwork.IsConnected) {
                 PhotonNetwork.JoinRandomRoom();
             }
@@ -44,6 +49,12 @@ namespace Com.Bryce.Unity {
             }
         }
 
+        [Tooltip("The UI Panel to let the user enter name, connect and play")] 
+        [SerializeField] private GameObject controlPanel;
+
+        [Tooltip("The UI Label to inform the user that the connection is in progress")] 
+        [SerializeField] private GameObject progressLabel;
+
         #endregion
 
         #region MonoBehaviourPunCallbacks Callbacks
@@ -53,6 +64,9 @@ namespace Com.Bryce.Unity {
         }
 
         public override void OnDisconnected(DisconnectCause cause) {
+            progressLabel.SetActive(false);
+            controlPanel.SetActive(true);
+
             Debug.LogWarningFormat("PUN Basics Tutorial/Launcher: OnDisconnected() was called by PUN with reason {0}", cause);
         }
 
