@@ -42,7 +42,6 @@ namespace Com.Bryce.Unity {
             if (PhotonNetwork.IsConnected) {
                 PhotonNetwork.JoinRandomRoom();
             }
-
             else {
                 isConnecting = PhotonNetwork.ConnectUsingSettings();
                 PhotonNetwork.GameVersion = gameVersion;

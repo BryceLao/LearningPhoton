@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using Photon.Pun;
 
 namespace Com.MyCompany.MyGame {
-    public class PlayerAnimatorManager : MonoBehaviour {
+    public class PlayerAnimatorManager : MonoBehaviourPun {
         #region Private Fields
 
         [SerializeField] private float directionDampTime = .25f;
@@ -20,6 +21,9 @@ namespace Com.MyCompany.MyGame {
         }
 
         private void Update() {
+            if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) {
+                return;
+            }
             if (!animator) {
                 return;
             }
@@ -29,8 +33,10 @@ namespace Com.MyCompany.MyGame {
                     animator.SetTrigger("Jump");
                 }
             }
+
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
+
             if (v < 0) {
                 v = 0;
             }

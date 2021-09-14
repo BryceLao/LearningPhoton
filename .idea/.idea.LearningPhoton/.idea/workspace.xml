@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1858901a-517b-45f4-85a6-7d110afecaff" name="Changes" comment="4-Game Manager &amp; Levels, 5-Building The Player">
+    <list default="true" id="1858901a-517b-45f4-85a6-7d110afecaff" name="Changes" comment="Commit">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LearningPhoton/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LearningPhoton/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/My Robot Kyle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/My Robot Kyle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Launcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Launcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerAnimatorManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerAnimatorManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1631494393763</updated>
       <workItem from="1631494398014" duration="12573000" />
-      <workItem from="1631578263410" duration="18337000" />
+      <workItem from="1631578263410" duration="20781000" />
     </task>
     <task id="LOCAL-00001" summary="0-Introduction">
       <created>1631494822388</created>
@@ -156,7 +159,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631608419259</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="GitIgnore">
+      <created>1631610718738</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1631610718738</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Commit">
+      <created>1631610839168</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1631610839168</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +216,8 @@
     <MESSAGE value="2-Lobby UI" />
     <MESSAGE value="3-Game Scenes" />
     <MESSAGE value="4-Game Manager &amp; Levels, 5-Building The Player" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="GitIgnore" />
+    <MESSAGE value="Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit" />
   </component>
 </project>

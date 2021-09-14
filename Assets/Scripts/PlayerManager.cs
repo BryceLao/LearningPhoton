@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,7 +9,30 @@ using System.Collections;
 using Com.Bryce.Unity;
 
 namespace Com.MyCompany.MyGame {
-    public class PlayerManager : MonoBehaviourPunCallbacks {
+    public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable{
+
+        #region IPunObservable Implementation
+
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
+            if (stream.IsWriting) {
+                stream.SendNext(IsFiring);
+            }
+            else {
+                this.IsFiring = (bool) stream.ReceiveNext();
+            }
+
+            if (stream.IsWriting) {
+                stream.SendNext(IsFiring);
+                stream.SendNext(Health);
+            }
+            else {
+                this.IsFiring = (bool) stream.ReceiveNext();
+                this.Health = (float) stream.ReceiveNext();
+            }
+        }
+
+        #endregion
+
         #region Private Fields
 
         [Tooltip("The Beams GameObject to control")]
@@ -37,9 +61,24 @@ namespace Com.MyCompany.MyGame {
             }
         }
 
-        private void Update() {
+        private void Start() {
+            CameraWork _cameraWork = this.gameObject.GetComponent<CameraWork>();
 
-            ProcessInputs();
+            if (_cameraWork != null) {
+                if (photonView.IsMine) {
+                    _cameraWork.OnStartFollowing();
+                }
+            }
+
+            else {
+                Debug.LogError("<Color=Red><a>Missing</a></Color> CameraWork Component on playerPrefab.", this);
+            }
+        }
+
+        private void Update() {
+            if(photonView.IsMine){
+                ProcessInputs();
+            }
 
             if (beams != null && IsFiring != beams.activeInHierarchy) {
                 beams.SetActive(IsFiring);
