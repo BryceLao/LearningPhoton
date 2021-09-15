@@ -7,6 +7,8 @@ using Photon.Pun;
 using System.Collections;
 
 using Com.Bryce.Unity;
+using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 namespace Com.MyCompany.MyGame {
     public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable{
@@ -40,13 +42,21 @@ namespace Com.MyCompany.MyGame {
 
         private bool IsFiring;
 
-
+        private void OnSceneLoaded(UnityEngine.SceneManagement.Scene Scene, UnityEngine.SceneManagement.LoadSceneMode loadingMode) {
+            this.CalledOnLevelWasLoaded(Scene.buildIndex);
+        }
         #endregion
 
         #region Public Fields
 
+        [Tooltip("The Player's UI GameObject Prefab")]
+        [SerializeField] public GameObject PlayerUiPrefab;
+
         [Tooltip("The current Health of our player")]
         public float Health = 1f;
+
+        [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
+        public static GameObject LocalPlayerInstance;
 
         #endregion
 
@@ -59,10 +69,18 @@ namespace Com.MyCompany.MyGame {
             else {
                 beams.SetActive(false);
             }
+
+            if (photonView.IsMine) {
+                PlayerManager.LocalPlayerInstance = this.gameObject;
+            }
+            
+            DontDestroyOnLoad(this.gameObject);
+
         }
 
         private void Start() {
             CameraWork _cameraWork = this.gameObject.GetComponent<CameraWork>();
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
 
             if (_cameraWork != null) {
                 if (photonView.IsMine) {
@@ -72,6 +90,14 @@ namespace Com.MyCompany.MyGame {
 
             else {
                 Debug.LogError("<Color=Red><a>Missing</a></Color> CameraWork Component on playerPrefab.", this);
+            }
+
+            if (PlayerUiPrefab != null) {
+                GameObject _uiGo =  Instantiate(PlayerUiPrefab);
+                _uiGo.SendMessage ("SetTarget", this, SendMessageOptions.RequireReceiver);
+            }
+            else {
+                Debug.LogWarning("<Color=Red><a>Missing</a></Color> PlayerUiPrefab reference on player Prefab.", this);
             }
         }
 
@@ -112,6 +138,23 @@ namespace Com.MyCompany.MyGame {
             }
 
             Health -= 0.1f * Time.deltaTime;
+        }
+
+        private void OnLevelWasLoaded(int level) {
+            this.CalledOnLevelWasLoaded(level);
+
+            GameObject _uiGo = Instantiate(this.PlayerUiPrefab);
+            _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
+        }
+
+        private void CalledOnLevelWasLoaded(int level) {
+            if (!Physics.Raycast(transform.position, -Vector3.up, 5f)) {
+                transform.position = new Vector3(0f, 5f, 0f);
+            }
+        }
+        public override void OnDisable() {
+            base.OnDisable ();
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         #endregion

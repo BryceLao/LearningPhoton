@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1858901a-517b-45f4-85a6-7d110afecaff" name="Changes" comment="Commit">
+    <list default="true" id="1858901a-517b-45f4-85a6-7d110afecaff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LearningPhoton/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LearningPhoton/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/My Robot Kyle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/My Robot Kyle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Launcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Launcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerAnimatorManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerAnimatorManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Kyle Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Kyle Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +45,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerNameInputField.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Launcher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/.NETFramework,Version=v4.7.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1y3y6LdcH2C1cux2Aj7W0iODEtH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -108,7 +108,8 @@
       <option name="presentableId" value="Default" />
       <updated>1631494393763</updated>
       <workItem from="1631494398014" duration="12573000" />
-      <workItem from="1631578263410" duration="20781000" />
+      <workItem from="1631578263410" duration="20921000" />
+      <workItem from="1631663950752" duration="1931000" />
     </task>
     <task id="LOCAL-00001" summary="0-Introduction">
       <created>1631494822388</created>
@@ -173,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631610839168</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="7-Player Networking">
+      <created>1631620160846</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1631620160846</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +226,26 @@
     <MESSAGE value="4-Game Manager &amp; Levels, 5-Building The Player" />
     <MESSAGE value="GitIgnore" />
     <MESSAGE value="Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit" />
+    <MESSAGE value="7-Player Networking" />
+    <option name="LAST_COMMIT_MESSAGE" value="7-Player Networking" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/PlayerUI.cs</url>
+          <line>56</line>
+          <properties documentPath="C:\Users\BRYAN\Unity\ByteSurfers\LearningPhoton\Assets\Scripts\PlayerUI.cs" initialLine="38" containingFunctionPresentation="method 'SetTarget'">
+            <startOffsets>
+              <option value="1422" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1423" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
